@@ -27,6 +27,23 @@ app.use(express.json());
 app.use('/api/auth', authRoutes);
 app.use('/api/chat', chatRoutes);
 
+// Root route
+app.get('/', (req, res) => {
+  res.json({
+    message: 'Real-Time Chat Application API',
+    version: '1.0.0',
+    endpoints: {
+      auth: '/api/auth',
+      chat: '/api/chat'
+    }
+  });
+});
+
+// Health check route
+app.get('/health', (req, res) => {
+  res.json({ status: 'ok', message: 'Server is running' });
+});
+
 // Store online users mapping userId -> socketId
 const onlineUsers = new Map();
 // Store socketId -> userId mapping
