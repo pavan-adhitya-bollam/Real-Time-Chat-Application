@@ -30,7 +30,7 @@ const Chat = () => {
     const fetchUsers = async () => {
       try {
         const token = localStorage.getItem('token');
-        const response = await axios.get('http://localhost:5000/api/chat/users', {
+        const response = await axios.get('https://real-time-chat-application-xty0.onrender.com/api/chat/users', {
           headers: { Authorization: `Bearer ${token}` },
         });
         setUsers(response.data);
@@ -84,7 +84,7 @@ const Chat = () => {
   const fetchMessages = async (userId) => {
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.get(`http://localhost:5000/api/chat/messages/${userId}`, {
+      const response = await axios.get(`https://real-time-chat-application-xty0.onrender.com/api/chat/messages/${userId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setMessages(response.data);
@@ -121,7 +121,7 @@ const Chat = () => {
     try {
       const token = localStorage.getItem('token');
       await axios.post(
-        'http://localhost:5000/api/chat/messages',
+        'https://real-time-chat-application-xty0.onrender.com/api/chat/messages',
         { receiverId: selectedUser._id, text: input },
         { headers: { Authorization: `Bearer ${token}` } }
       );

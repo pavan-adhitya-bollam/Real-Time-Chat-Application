@@ -18,7 +18,7 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (email, password) => {
     try {
-      const response = await axios.post('http://localhost:5000/api/auth/login', {
+      const response = await axios.post('https://real-time-chat-application-xty0.onrender.com/api/auth/login', {
         email,
         password,
       });
@@ -36,7 +36,7 @@ export const AuthProvider = ({ children }) => {
 
   const register = async (username, email, password) => {
     try {
-      const response = await axios.post('http://localhost:5000/api/auth/register', {
+      const response = await axios.post('https://real-time-chat-application-xty0.onrender.com/api/auth/register', {
         username,
         email,
         password,
